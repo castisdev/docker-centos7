@@ -22,6 +22,7 @@ RUN yum install -y \
   glibc-devel \
   libuuid-devel \
   gdb \
+  golang \
   valgrind \
   mysql-devel \
   postgresql93-devel; \
