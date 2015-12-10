@@ -22,7 +22,9 @@ RUN yum install -y \
   glibc-devel \
   libuuid-devel \
   gdb \
-  valgrind; \
+  valgrind \
+  mysql-devel \
+  postgresql93-devel; \
   yum -y clean all
 
 ADD ./install_devtoolset3.sh /script/
