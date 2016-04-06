@@ -28,25 +28,25 @@ RUN yum install -y \
   postgresql93-devel; \
   yum -y clean all
 
-ADD ./install_devtoolset3.sh /script/
-RUN /script/install_devtoolset3.sh
-ENV PATH /opt/rh/devtoolset-3/root/usr/bin/:$PATH
+ADD ./install_devtoolset4.sh /script/
+RUN /script/install_devtoolset4.sh
+ENV PATH /opt/rh/devtoolset-4/root/usr/bin/:$PATH
 
-ADD ./install_cmake32.sh /script/
-RUN /script/install_cmake32.sh
+ADD ./install_cmake351.sh /script/
+RUN /script/install_cmake351.sh
 
-ADD ./install_boost158.sh /script/
-RUN /script/install_boost158.sh
-ENV BOOST_ROOT /usr/local/boost158
+ADD ./install_boost159.sh /script/
+RUN /script/install_boost159.sh
+ENV BOOST_ROOT /usr/local/boost159
 
-ADD ./install_cryptopp.sh /script/
-RUN /script/install_cryptopp.sh
+ADD ./install_cryptopp563.sh /script/
+RUN /script/install_cryptopp563.sh
 
-ADD ./install_gmock170.sh /script/
-RUN /script/install_gmock170.sh
+ADD ./install_googletest170.sh /script/
+RUN /script/install_googletest170.sh
 
-ADD install_python34.sh /script/
-RUN /script/install_python34.sh
+ADD install_python351.sh /script/
+RUN /script/install_python351.sh
 
 ADD ./install_cpptools.sh /script/
 RUN /script/install_cpptools.sh
@@ -58,4 +58,4 @@ ADD ./.bashrc /root/.bashrc
 ENV HOME /root
 
 # Define default command
-CMD ["scl", "enable", "devtoolset-3", "bash"]
+CMD ["scl", "enable", "devtoolset-4", "bash"]
