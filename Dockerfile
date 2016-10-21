@@ -54,6 +54,11 @@ RUN /script/install_cpptools.sh
 # Add root files
 ADD ./.bashrc /root/.bashrc
 
+# Install
+RUN yum install -y \
+  vim-enhanced; \
+  yum -y clean all
+
 # Set environment variables
 ENV HOME /root
 
