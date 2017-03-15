@@ -1,10 +1,10 @@
 #!/bin/bash -e
 cd ~
-wget --no-check-certificate http://www.cryptopp.com/cryptopp563.zip
-unzip cryptopp563.zip -d cryptopp
+wget --no-check-certificate https://www.cryptopp.com/cryptopp565.zip
+unzip cryptopp565.zip -d cryptopp
 cd cryptopp
 sed -e s/march=native/march=x86-64/g GNUmakefile > tmp_make
-mv tmp_make GNUmakefile
+mv -f tmp_make GNUmakefile
 make static
 make install
 cd ~
