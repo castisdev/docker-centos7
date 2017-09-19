@@ -29,7 +29,9 @@ RUN yum install -y \
   vim-enhanced \
   unixODBC-devel \
   mysql-connector-odbc \
-  sysstat; \
+  sysstat \
+  psmisc \
+  sysvinit-tools; \
   yum -y clean all
 
 ADD install_devtoolset6.sh /script/
