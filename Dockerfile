@@ -31,7 +31,9 @@ RUN yum install -y \
   mysql-connector-odbc \
   sysstat \
   psmisc \
-  sysvinit-tools; \
+  sysvinit-tools \
+  yum-utils \
+  tbb-devel; \
   yum -y clean all
 
 ADD install_devtoolset6.sh /script/
