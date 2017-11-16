@@ -33,12 +33,13 @@ RUN yum install -y \
   psmisc \
   sysvinit-tools \
   yum-utils \
-  tbb-devel; \
+  tbb-devel \
+  gperftools-devel; \
   yum -y clean all
 
-ADD install_devtoolset6.sh /script/
-RUN /script/install_devtoolset6.sh
-ENV PATH /opt/rh/devtoolset-6/root/usr/bin/:$PATH
+ADD install_devtoolset7.sh /script/
+RUN /script/install_devtoolset7.sh
+ENV PATH /opt/rh/devtoolset-7/root/usr/bin/:$PATH
 
 ADD install_cmake372.sh /script/
 RUN /script/install_cmake372.sh
@@ -81,4 +82,4 @@ ADD ./.bashrc /root/.bashrc
 ENV HOME /root
 
 # Define default command
-CMD ["scl", "enable", "devtoolset-6", "zsh"]
+CMD ["scl", "enable", "devtoolset-7", "zsh"]
