@@ -1,9 +1,9 @@
 #!/bin/sh -e
 sed -i -e 's/Defaults    requiretty.*/ #Defaults    requiretty/g' /etc/sudoers
 cd ~
-wget --no-check-certificate --content-disposition https://sourceforge.net/projects/zsh/files/zsh/5.3.1/zsh-5.3.1.tar.gz/download
-tar xvf zsh-5.3.1.tar.gz
-cd zsh-5.3.1
+wget --no-check-certificate --content-disposition http://sourceforge.net/projects/zsh/files/zsh/5.5/zsh-5.5.tar.xz/download
+tar xvf zsh-5.5.tar.xz
+cd zsh-5.5
 ./configure --with-tcsetpgrp
 make
 sudo make install
