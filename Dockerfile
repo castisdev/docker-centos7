@@ -51,8 +51,8 @@ ENV BOOST_ROOT /usr/local/boost_1_67_0
 ADD install_cryptopp700.sh /script/
 RUN /script/install_cryptopp700.sh
 
-ADD install_googletest170.sh /script/
-RUN /script/install_googletest170.sh
+ADD install_googletest.sh /script/
+RUN /script/install_googletest.sh
 
 ADD install_python365.sh /script/
 RUN /script/install_python365.sh
