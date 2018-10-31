@@ -41,30 +41,30 @@ ADD install_devtoolset7.sh /script/
 RUN /script/install_devtoolset7.sh
 ENV PATH /opt/rh/devtoolset-7/root/usr/bin/:$PATH
 
-ADD install_cmake3110.sh /script/
-RUN /script/install_cmake3110.sh
+ADD install_cmake3123.sh /script/
+RUN /script/install_cmake3123.sh
 
-ADD install_boost167.sh /script/
-RUN /script/install_boost167.sh
-ENV BOOST_ROOT /usr/local/boost_1_67_0
+ADD install_boost168.sh /script/
+RUN /script/install_boost168.sh
+ENV BOOST_ROOT /usr/local/boost_1_68_0
 
 ADD install_cryptopp700.sh /script/
 RUN /script/install_cryptopp700.sh
 
-ADD install_googletest.sh /script/
-RUN /script/install_googletest.sh
+ADD install_googletest181.sh /script/
+RUN /script/install_googletest181.sh
 
-ADD install_python365.sh /script/
-RUN /script/install_python365.sh
+ADD install_python371.sh /script/
+RUN /script/install_python371.sh
 
 ADD install_cpptools.sh /script/
 RUN /script/install_cpptools.sh
 
-ADD install_cppcheck183.sh /script/
-RUN /script/install_cppcheck183.sh
+ADD install_cppcheck185.sh /script/
+RUN /script/install_cppcheck185.sh
 
-ADD install_zsh550.sh /script/
-RUN /script/install_zsh550.sh
+ADD install_zsh562.sh /script/
+RUN /script/install_zsh562.sh
 
 ADD install_ninja182.sh /script/
 RUN /script/install_ninja182.sh
