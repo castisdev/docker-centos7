@@ -34,19 +34,24 @@ RUN yum install -y \
   sysvinit-tools \
   yum-utils \
   tbb-devel \
-  gperftools-devel; \
+  gperftools-devel \
+  iproute \
+  net-tools; \
   yum -y clean all
 
-ADD install_devtoolset7.sh /script/
-RUN /script/install_devtoolset7.sh
-ENV PATH /opt/rh/devtoolset-7/root/usr/bin/:$PATH
+ADD install_devtoolset8.sh /script/
+RUN /script/install_devtoolset8.sh
+ENV PATH /opt/rh/devtoolset-8/root/usr/bin/:$PATH
 
-ADD install_cmake3123.sh /script/
-RUN /script/install_cmake3123.sh
+ADD install_cmake3141.sh /script/
+RUN /script/install_cmake3141.sh
 
-ADD install_boost168.sh /script/
-RUN /script/install_boost168.sh
-ENV BOOST_ROOT /usr/local/boost_1_68_0
+ADD install_libbacktrace.sh /script/
+RUN /script/install_libbacktrace.sh
+
+ADD install_boost169.sh /script/
+RUN /script/install_boost169.sh
+ENV BOOST_ROOT /usr/local/boost_1_69_0
 
 ADD install_cryptopp700.sh /script/
 RUN /script/install_cryptopp700.sh
