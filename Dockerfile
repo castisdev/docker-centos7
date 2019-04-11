@@ -87,4 +87,4 @@ ADD ./.bashrc /root/.bashrc
 ENV HOME /root
 
 # Define default command
-CMD ["scl", "enable", "devtoolset-7", "zsh"]
+CMD ["scl", "enable", "devtoolset-8", "zsh"]
