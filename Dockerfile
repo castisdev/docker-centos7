@@ -43,36 +43,36 @@ ADD install_devtoolset8.sh /script/
 RUN /script/install_devtoolset8.sh
 ENV PATH /opt/rh/devtoolset-8/root/usr/bin/:$PATH
 
-ADD install_cmake3141.sh /script/
-RUN /script/install_cmake3141.sh
+ADD install_cmake3152.sh /script/
+RUN /script/install_cmake3152.sh
 
 ADD install_libbacktrace.sh /script/
 RUN /script/install_libbacktrace.sh
 
-ADD install_boost169.sh /script/
-RUN /script/install_boost169.sh
-ENV BOOST_ROOT /usr/local/boost_1_69_0
+ADD install_boost171.sh /script/
+RUN /script/install_boost171.sh
+ENV BOOST_ROOT /usr/local/boost_1_71_0
 
-ADD install_cryptopp700.sh /script/
-RUN /script/install_cryptopp700.sh
+ADD install_cryptopp820.sh /script/
+RUN /script/install_cryptopp820.sh
 
 ADD install_googletest181.sh /script/
 RUN /script/install_googletest181.sh
 
-ADD install_python371.sh /script/
-RUN /script/install_python371.sh
+ADD install_python374.sh /script/
+RUN /script/install_python374.sh
 
 ADD install_cpptools.sh /script/
 RUN /script/install_cpptools.sh
 
-ADD install_cppcheck185.sh /script/
-RUN /script/install_cppcheck185.sh
+ADD install_cppcheck189.sh /script/
+RUN /script/install_cppcheck189.sh
 
-ADD install_zsh562.sh /script/
-RUN /script/install_zsh562.sh
+ADD install_zsh571.sh /script/
+RUN /script/install_zsh571.sh
 
-ADD install_ninja182.sh /script/
-RUN /script/install_ninja182.sh
+ADD install_ninja190.sh /script/
+RUN /script/install_ninja190.sh
 
 # set timezone
 RUN ln -snf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
