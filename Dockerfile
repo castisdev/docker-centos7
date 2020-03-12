@@ -51,7 +51,7 @@ RUN /script/install_libbacktrace.sh
 
 ADD install_boost171.sh /script/
 RUN /script/install_boost171.sh
-ENV BOOST_ROOT /usr/local/boost_1_71_0
+ENV Boost_DIR /usr/local/boost_1_71_0
 
 ADD install_cryptopp820.sh /script/
 RUN /script/install_cryptopp820.sh
