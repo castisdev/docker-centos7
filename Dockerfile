@@ -74,8 +74,8 @@ RUN /script/install_zsh58.sh
 ADD install_ninja1100.sh /script/
 RUN /script/install_ninja1100.sh
 
-ADD install_ffmpeg442.sh /script/
-RUN /script/install_ffmpeg442.sh
+ADD install_ffmpeg422.sh /script/
+RUN /script/install_ffmpeg422.sh
 
 # set timezone
 RUN ln -snf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
