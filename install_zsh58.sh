@@ -1,11 +1,12 @@
 #!/bin/sh -e
+set -x #echo on
 sed -i -e 's/Defaults    requiretty.*/ #Defaults    requiretty/g' /etc/sudoers
 cd ~
 wget --no-check-certificate --content-disposition https://sourceforge.net/projects/zsh/files/zsh/5.8/zsh-5.8.tar.xz/download
 tar xvf zsh-5.8.tar.xz
 cd zsh-5.8
 ./configure --with-tcsetpgrp
-make
+make -j$(nproc)
 sudo make install
 echo "/usr/local/bin/zsh" | sudo tee -a /etc/shells
 chsh -s /usr/local/bin/zsh
