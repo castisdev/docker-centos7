@@ -13,6 +13,7 @@ RUN yum install -y \
   make \
   unzip \
   openssl-devel \
+  openssl-static \
   git \
   subversion \
   tar \
@@ -38,37 +39,39 @@ RUN yum install -y \
   iproute \
   net-tools \
   ccache \
-  libunwind-devel; \
-  yum -y clean all
+  libunwind-devel \
+  libasan \
+  libasan-static \
+  && yum -y clean all
 
 ADD install_devtoolset9.sh /script/
 RUN /script/install_devtoolset9.sh
 SHELL [ "scl", "enable", "devtoolset-9" ]
 
-ADD install_cmake3191.sh /script/
-RUN /script/install_cmake3191.sh
+ADD install_cmake3202.sh /script/
+RUN /script/install_cmake3202.sh
 
 ADD install_libbacktrace.sh /script/
 RUN /script/install_libbacktrace.sh
 
-ADD install_boost175.sh /script/
-RUN /script/install_boost175.sh
-ENV Boost_DIR /usr/local/boost_1_75_0
+ADD install_boost176.sh /script/
+RUN /script/install_boost176.sh
+ENV Boost_DIR /usr/local/boost_1_76_0
 
-ADD install_cryptopp820.sh /script/
-RUN /script/install_cryptopp820.sh
+ADD install_cryptopp850.sh /script/
+RUN /script/install_cryptopp850.sh
 
 ADD install_googletest1100.sh /script/
 RUN /script/install_googletest1100.sh
 
-ADD install_python390.sh /script/
-RUN /script/install_python390.sh
+ADD install_python395.sh /script/
+RUN /script/install_python395.sh
 
 ADD install_cpptools.sh /script/
 RUN /script/install_cpptools.sh
 
-ADD install_cppcheck23.sh /script/
-RUN /script/install_cppcheck23.sh
+ADD install_cppcheck241.sh /script/
+RUN /script/install_cppcheck241.sh
 
 ADD install_zsh58.sh /script/
 RUN /script/install_zsh58.sh
@@ -76,8 +79,8 @@ RUN /script/install_zsh58.sh
 ADD install_ninja1102.sh /script/
 RUN /script/install_ninja1102.sh
 
-ADD install_ffmpeg431.sh /script/
-RUN /script/install_ffmpeg431.sh
+ADD install_ffmpeg44.sh /script/
+RUN /script/install_ffmpeg44.sh
 
 # set timezone
 RUN ln -snf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
