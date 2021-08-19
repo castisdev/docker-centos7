@@ -1,6 +1,8 @@
 # Pull base image
 FROM centos:7
 
+LABEL org.opencontainers.image.source https://github.com/castisdev/docker-centos7
+
 RUN yum install -y epel-release; yum -y clean all
 
 # Install EPEL repo
