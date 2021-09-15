@@ -50,8 +50,8 @@ ADD install_devtoolset10.sh /script/
 RUN /script/install_devtoolset10.sh
 SHELL [ "scl", "enable", "devtoolset-10" ]
 
-ADD install_cmake3211.sh /script/
-RUN /script/install_cmake3211.sh
+ADD install_cmake3212.sh /script/
+RUN /script/install_cmake3212.sh
 
 ADD install_libbacktrace.sh /script/
 RUN /script/install_libbacktrace.sh
@@ -97,4 +97,4 @@ ADD ./.bashrc /root/.bashrc
 ENV HOME /root
 
 # Define default command
-CMD ["scl", "enable", "devtoolset-9", "zsh"]
+CMD ["scl", "enable", "devtoolset-10", "zsh"]
