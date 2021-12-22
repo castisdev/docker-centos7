@@ -3,9 +3,11 @@ FROM centos:7
 
 LABEL org.opencontainers.image.source https://github.com/castisdev/docker-centos7
 
+# Install EPEL repo
 RUN yum install -y epel-release; yum -y clean all
 
-# Install EPEL repo
+RUN yum install -y http://opensource.wandisco.com/centos/7/git/x86_64/wandisco-git-release-7-2.noarch.rpm; yum -y clean all
+
 # Install
 RUN yum install -y \
   sudo \
@@ -46,34 +48,34 @@ RUN yum install -y \
   libasan-static \
   && yum -y clean all
 
-ADD install_devtoolset10.sh /script/
-RUN /script/install_devtoolset10.sh
-SHELL [ "scl", "enable", "devtoolset-10" ]
+ADD install_devtoolset11.sh /script/
+RUN /script/install_devtoolset11.sh
+SHELL [ "scl", "enable", "devtoolset-11" ]
 
-ADD install_cmake3212.sh /script/
-RUN /script/install_cmake3212.sh
+ADD install_cmake3221.sh /script/
+RUN /script/install_cmake3221.sh
 
 ADD install_libbacktrace.sh /script/
 RUN /script/install_libbacktrace.sh
 
-ADD install_boost177.sh /script/
-RUN /script/install_boost177.sh
-ENV Boost_DIR /usr/local/boost_1_77_0
+ADD install_boost178.sh /script/
+RUN /script/install_boost178.sh
+ENV Boost_DIR /usr/local/boost_1_78_0
 
-ADD install_cryptopp850.sh /script/
-RUN /script/install_cryptopp850.sh
+ADD install_cryptopp860.sh /script/
+RUN /script/install_cryptopp860.sh
 
 ADD install_googletest1110.sh /script/
 RUN /script/install_googletest1110.sh
 
-ADD install_python396.sh /script/
-RUN /script/install_python396.sh
+ADD install_python399.sh /script/
+RUN /script/install_python399.sh
 
 ADD install_cpptools.sh /script/
 RUN /script/install_cpptools.sh
 
-ADD install_cppcheck25.sh /script/
-RUN /script/install_cppcheck25.sh
+ADD install_cppcheck26.sh /script/
+RUN /script/install_cppcheck26.sh
 
 ADD install_zsh58.sh /script/
 RUN /script/install_zsh58.sh
@@ -81,8 +83,8 @@ RUN /script/install_zsh58.sh
 ADD install_ninja1102.sh /script/
 RUN /script/install_ninja1102.sh
 
-ADD install_ffmpeg44.sh /script/
-RUN /script/install_ffmpeg44.sh
+ADD install_ffmpeg441.sh /script/
+RUN /script/install_ffmpeg441.sh
 
 # set timezone
 RUN ln -snf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
@@ -97,4 +99,4 @@ ADD ./.bashrc /root/.bashrc
 ENV HOME /root
 
 # Define default command
-CMD ["scl", "enable", "devtoolset-10", "zsh"]
+CMD ["scl", "enable", "devtoolset-11", "zsh"]
