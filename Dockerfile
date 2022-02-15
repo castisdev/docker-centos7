@@ -46,7 +46,6 @@ RUN yum install -y \
   libunwind-devel \
   libasan \
   libasan-static \
-  libwebp-devel \
   && yum -y clean all
 
 ADD install_devtoolset11.sh /script/
@@ -89,6 +88,9 @@ RUN /script/install_ffmpeg50.sh
 
 ADD install_golang1177.sh /script/
 RUN /script/install_golang1177.sh
+
+ADD install_libwebp122.sh /script/
+RUN /script/install_libwebp122.sh
 
 # set timezone
 RUN ln -snf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
