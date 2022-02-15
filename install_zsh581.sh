@@ -2,9 +2,9 @@
 set -x #echo on
 sed -i -e 's/Defaults    requiretty.*/ #Defaults    requiretty/g' /etc/sudoers
 cd ~
-wget -nv --no-check-certificate --content-disposition https://sourceforge.net/projects/zsh/files/zsh/5.8/zsh-5.8.tar.xz/download
-tar xvf zsh-5.8.tar.xz
-cd zsh-5.8
+wget -nv --no-check-certificate --content-disposition https://sourceforge.net/projects/zsh/files/zsh/5.8.1/zsh-5.8.1.tar.xz/download
+tar xvf zsh-5.8.1.tar.xz
+cd zsh-5.8.1
 ./configure --with-tcsetpgrp
 make -j$(nproc)
 sudo make install
