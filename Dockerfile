@@ -60,8 +60,8 @@ ADD install_devtoolset11.sh /script/
 RUN /script/install_devtoolset11.sh
 SHELL [ "scl", "enable", "devtoolset-11" ]
 
-ADD install_cmake3241.sh /script/
-RUN /script/install_cmake3241.sh
+ADD install_cmake3242.sh /script/
+RUN /script/install_cmake3242.sh
 
 ADD install_libbacktrace.sh /script/
 RUN /script/install_libbacktrace.sh
@@ -76,26 +76,30 @@ RUN /script/install_cryptopp870.sh
 ADD install_googletest1121.sh /script/
 RUN /script/install_googletest1121.sh
 
-ADD install_python3106.sh /script/
-RUN /script/install_python3106.sh
+ADD install_python3110.sh /script/
+RUN /script/install_python3110.sh
 
 ADD install_cpptools.sh /script/
 RUN /script/install_cpptools.sh
 
-ADD install_cppcheck28.sh /script/
-RUN /script/install_cppcheck28.sh
+ADD install_cppcheck29.sh /script/
+RUN /script/install_cppcheck29.sh
 
 ADD install_zsh59.sh /script/
 RUN /script/install_zsh59.sh
 
-ADD install_ninja1110.sh /script/
-RUN /script/install_ninja1110.sh
+ADD install_ninja1111.sh /script/
+RUN /script/install_ninja1111.sh
 
-ADD install_ffmpeg51.sh /script/
-RUN /script/install_ffmpeg51.sh
+ADD install_ffmpeg512.sh /script/
+RUN /script/install_ffmpeg512.sh
 
-ADD install_golang119.sh /script/
-RUN /script/install_golang119.sh
+ADD install_golang1192.sh /script/
+RUN /script/install_golang1192.sh
+
+# Set environment variables
+ENV HOME /root
+ENV PATH="${PATH}:${HOME}/go/bin:/usr/local/go/bin"
 
 ADD install_libwebp124.sh /script/
 RUN /script/install_libwebp124.sh
@@ -103,18 +107,14 @@ RUN /script/install_libwebp124.sh
 ADD install_wrk420.sh /script/
 RUN /script/install_wrk420.sh
 
-ADD install_protobuf215.sh /script/
-RUN /script/install_protobuf215.sh
+ADD install_protobuf218.sh /script/
+RUN /script/install_protobuf218.sh
 
 # ctail
 RUN wget -O - https://raw.githubusercontent.com/castisdev/ctail/master/install.sh --no-check-certificate | bash
 
 # Add root files
 ADD ./.bashrc /root/.bashrc
-
-# Set environment variables
-ENV HOME /root
-ENV PATH="${PATH}:${HOME}/go/bin:/usr/local/go/bin"
 
 # Define default command
 CMD ["scl", "enable", "devtoolset-11", "zsh"]
