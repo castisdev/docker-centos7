@@ -1,5 +1,5 @@
 # Pull base image
-FROM centos:7
+FROM nvidia/cuda:11.6.2-devel-centos7
 
 LABEL org.opencontainers.image.source https://github.com/castisdev/docker-centos7
 
