@@ -28,16 +28,21 @@ make install -j$(nproc)
 cd ~
 rm -rf x264*
 
+git clone https://git.videolan.org/git/ffmpeg/nv-codec-headers.git
+cd nv-codec-headers
+git checkout n11.1.5.0
+make install && cd ~
+
 cd ~
 wget -nv --no-check-certificate https://ffmpeg.org/releases/ffmpeg-5.1.2.tar.bz2
 tar xf ffmpeg-5.1.2.tar.bz2
 cd ffmpeg-5.1.2
 
-PKG_CONFIG_PATH=/usr/local/lib/pkgconfig ./configure --enable-shared --enable-libxml2 --enable-libopenh264
+PKG_CONFIG_PATH=/usr/local/lib/pkgconfig ./configure --enable-shared --enable-libxml2 --enable-libopenh264 --enable-nonfree --enable-cuda --enable-cuda-nvcc --enable-nvenc
 make install -j$(nproc)
 echo "/usr/local/lib" >> /etc/ld.so.conf.d/ffmpeg.conf
 
-PKG_CONFIG_PATH=/usr/local/lib/pkgconfig ./configure --prefix=/usr/local/lib/ffmpeg_gpl --enable-gpl --enable-shared --enable-libxml2 --enable-libopenh264 --enable-libx264
+PKG_CONFIG_PATH=/usr/local/lib/pkgconfig ./configure --prefix=/usr/local/lib/ffmpeg_gpl --enable-gpl --enable-shared --enable-libxml2 --enable-libopenh264 --enable-nonfree --enable-cuda --enable-cuda-nvcc --enable-nvenc --enable-libx264 --enable-postproc
 make install -j$(nproc)
 
 ldconfig

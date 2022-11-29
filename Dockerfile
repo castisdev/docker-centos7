@@ -91,6 +91,8 @@ RUN /script/install_zsh59.sh
 ADD install_ninja1111.sh /script/
 RUN /script/install_ninja1111.sh
 
+ENV NVIDIA_DRIVER_CAPABILITIES video,compute,utility
+
 ADD install_ffmpeg512.sh /script/
 RUN /script/install_ffmpeg512.sh
 
