@@ -28,16 +28,26 @@ make install -j$(nproc)
 cd ~
 rm -rf x264*
 
+
+cd ~
+wget -nv --no-check-certificate --content-disposition https://archive.mozilla.org/pub/opus/opus-1.3.1.tar.gz
+tar xf opus-1.3.1.tar.gz
+cd opus-1.3.1
+./configure --enable-shared
+make install -j$(nproc)
+cd ~
+rm -rf opus-1.3.1*
+
 cd ~
 wget -nv --no-check-certificate https://ffmpeg.org/releases/ffmpeg-5.1.2.tar.bz2
 tar xf ffmpeg-5.1.2.tar.bz2
 cd ffmpeg-5.1.2
 
-PKG_CONFIG_PATH=/usr/local/lib/pkgconfig ./configure --enable-shared --enable-libxml2 --enable-libopenh264
+PKG_CONFIG_PATH=/usr/local/lib/pkgconfig ./configure --enable-shared --enable-libxml2 --enable-libopenh264 --enable-libopus
 make install -j$(nproc)
 echo "/usr/local/lib" >> /etc/ld.so.conf.d/ffmpeg.conf
 
-PKG_CONFIG_PATH=/usr/local/lib/pkgconfig ./configure --prefix=/usr/local/lib/ffmpeg_gpl --enable-gpl --enable-shared --enable-libxml2 --enable-libopenh264 --enable-libx264
+PKG_CONFIG_PATH=/usr/local/lib/pkgconfig ./configure --prefix=/usr/local/lib/ffmpeg_gpl --enable-gpl --enable-shared --enable-libxml2 --enable-libopenh264 --enable-libopus --enable-libx264
 make install -j$(nproc)
 
 ldconfig

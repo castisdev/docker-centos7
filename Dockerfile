@@ -60,8 +60,8 @@ ADD install_devtoolset11.sh /script/
 RUN /script/install_devtoolset11.sh
 SHELL [ "scl", "enable", "devtoolset-11" ]
 
-ADD install_cmake3242.sh /script/
-RUN /script/install_cmake3242.sh
+ADD install_cmake3251.sh /script/
+RUN /script/install_cmake3251.sh
 
 ADD install_libbacktrace.sh /script/
 RUN /script/install_libbacktrace.sh
@@ -94,8 +94,8 @@ RUN /script/install_ninja1111.sh
 ADD install_ffmpeg512.sh /script/
 RUN /script/install_ffmpeg512.sh
 
-ADD install_golang1192.sh /script/
-RUN /script/install_golang1192.sh
+ADD install_golang1193.sh /script/
+RUN /script/install_golang1193.sh
 
 # Set environment variables
 ENV HOME /root
@@ -107,8 +107,11 @@ RUN /script/install_libwebp124.sh
 ADD install_wrk420.sh /script/
 RUN /script/install_wrk420.sh
 
-ADD install_protobuf218.sh /script/
-RUN /script/install_protobuf218.sh
+ADD install_protobuf2110.sh /script/
+RUN /script/install_protobuf2110.sh
+
+ADD install_webrtc.sh /script/
+RUN /script/install_webrtc.sh
 
 # ctail
 RUN wget -O - https://raw.githubusercontent.com/castisdev/ctail/master/install.sh --no-check-certificate | bash
