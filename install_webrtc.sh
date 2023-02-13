@@ -1,6 +1,6 @@
 #!/bin/bash -e
 set -x #echo on
-yum -y install meson; yum -y clean all
+pip3 install meson
 
 cd ~
 wget -nv --no-check-certificate --content-disposition https://github.com/libnice/libnice/archive/refs/tags/0.1.19.tar.gz

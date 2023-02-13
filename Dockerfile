@@ -66,9 +66,9 @@ RUN /script/install_cmake3251.sh
 ADD install_libbacktrace.sh /script/
 RUN /script/install_libbacktrace.sh
 
-ADD install_boost180.sh /script/
-RUN /script/install_boost180.sh
-ENV Boost_DIR /usr/local/boost_1_80_0
+ADD install_boost181.sh /script/
+RUN /script/install_boost181.sh
+ENV Boost_DIR /usr/local/boost_1_81_0
 
 ADD install_cryptopp870.sh /script/
 RUN /script/install_cryptopp870.sh
@@ -112,6 +112,9 @@ RUN /script/install_protobuf2110.sh
 
 ADD install_webrtc.sh /script/
 RUN /script/install_webrtc.sh
+
+ADD install_gstreamer1205.sh /script/
+RUN /script/install_gstreamer1205.sh
 
 # ctail
 RUN wget -O - https://raw.githubusercontent.com/castisdev/ctail/master/install.sh --no-check-certificate | bash
