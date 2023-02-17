@@ -15,3 +15,4 @@ cd boost_1_81_0
 
 cd ~
 rm -rf boost_*
+ccache -C

@@ -8,3 +8,4 @@ cd cppcheck-2.9
 mkdir build;cd build;cmake ..;make install -j$(nproc)
 cd ~
 rm -rf cppcheck*
+ccache -C

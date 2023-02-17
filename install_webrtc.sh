@@ -12,3 +12,4 @@ echo "/usr/local/lib64" >> /etc/ld.so.conf.d/webrtc.conf
 ldconfig
 cd ~
 rm -rf libnice-0.1.19*
+ccache -C

@@ -7,3 +7,4 @@ CFLAGS=-fPIC ./configure
 make install -j$(nproc)
 cd ~
 rm -rf libbacktrace
+ccache -C

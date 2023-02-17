@@ -8,3 +8,4 @@ make -j$(nproc)
 cp wrk /usr/local/bin/
 cd ~
 rm -rf wrk-4.2.0*
+ccache -C

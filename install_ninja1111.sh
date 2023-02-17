@@ -15,3 +15,4 @@ cd ninja-1.11.1
 install ninja /usr/local/bin
 cd ~
 rm -rf ninja-*
+ccache -C

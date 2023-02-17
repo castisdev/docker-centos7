@@ -12,5 +12,6 @@ export LDFLAGS=$(pkg-config --libs openssl11)
 make install -j$(nproc)
 cd ~
 rm -rf Python-*
+ccache -C
 
 pip3 install -U pip setuptools websocket-client

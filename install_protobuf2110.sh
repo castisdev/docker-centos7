@@ -7,3 +7,4 @@ mv protoc-21.10-linux-x86_64/bin/* /usr/local/bin/
 mv protoc-21.10-linux-x86_64/include/* /usr/local/include/
 cd ~
 rm -rf protoc-21.10-linux-x86_64*
+ccache -C

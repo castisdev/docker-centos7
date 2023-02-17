@@ -113,8 +113,8 @@ RUN /script/install_protobuf2110.sh
 ADD install_webrtc.sh /script/
 RUN /script/install_webrtc.sh
 
-ADD install_gstreamer1205.sh /script/
-RUN /script/install_gstreamer1205.sh
+ADD install_gstreamer1203.sh /script/
+RUN /script/install_gstreamer1203.sh
 
 # ctail
 RUN wget -O - https://raw.githubusercontent.com/castisdev/ctail/master/install.sh --no-check-certificate | bash

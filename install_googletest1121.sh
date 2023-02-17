@@ -7,3 +7,4 @@ cd googletest-release-1.12.1/
 mkdir build;cd build;cmake ..;make install -j$(nproc)
 cd ~
 rm -rf release-1.12.1.tar.gz googletest*
+ccache -C
