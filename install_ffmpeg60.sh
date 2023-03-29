@@ -3,14 +3,14 @@ set -x #echo on
 yum -y install libxml2-devel SDL2-devel alsa-lib-devel libXv-devel libX11-devel libXext-devel autoconf automake libtool yasm; yum -y clean all
 
 cd ~
-wget -nv --no-check-certificate https://www.nasm.us/pub/nasm/releasebuilds/2.15.05/nasm-2.15.05.tar.bz2
-tar xf nasm-2.15.05.tar.bz2
-cd nasm-2.15.05
+wget -nv --no-check-certificate https://www.nasm.us/pub/nasm/releasebuilds/2.16.01/nasm-2.16.01.tar.bz2
+tar xf nasm-2.16.01.tar.bz2
+cd nasm-2.16.01
 ./autogen.sh
 ./configure
 make install -j$(nproc)
 cd ~
-rm -rf nasm-2.15.05*
+rm -rf nasm-2.16.01*
 
 cd ~
 wget -nv --no-check-certificate --content-disposition https://github.com/cisco/openh264/archive/refs/tags/v2.3.1.tar.gz
@@ -28,7 +28,6 @@ make install -j$(nproc)
 cd ~
 rm -rf x264*
 
-
 cd ~
 wget -nv --no-check-certificate --content-disposition https://archive.mozilla.org/pub/opus/opus-1.3.1.tar.gz
 tar xf opus-1.3.1.tar.gz
@@ -39,9 +38,9 @@ cd ~
 rm -rf opus-1.3.1*
 
 cd ~
-wget -nv --no-check-certificate https://ffmpeg.org/releases/ffmpeg-5.1.2.tar.bz2
-tar xf ffmpeg-5.1.2.tar.bz2
-cd ffmpeg-5.1.2
+wget -nv --no-check-certificate https://ffmpeg.org/releases/ffmpeg-6.0.tar.bz2
+tar xf ffmpeg-6.0.tar.bz2
+cd ffmpeg-6.0
 
 PKG_CONFIG_PATH=/usr/local/lib/pkgconfig ./configure --enable-shared --enable-libxml2 --enable-libopenh264 --enable-libopus
 make install -j$(nproc)
@@ -53,5 +52,5 @@ make install -j$(nproc)
 ldconfig
 
 cd ~
-rm -rf ffmpeg-5.1.2*
+rm -rf ffmpeg-6.0*
 ccache -C

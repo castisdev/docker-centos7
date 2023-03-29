@@ -8,7 +8,6 @@ cd boost_1_81_0
 
 ./bootstrap.sh --prefix=/usr/local/boost_1_81_0
 ./b2 --without-python -j$(nproc) install
-./b2 boost.locale.icu=off --with-locale -j$(nproc) install
 
 ./bootstrap.sh --prefix=/usr/local/boost_1_81_0_valgrind
 ./b2 --without-python -j$(nproc) valgrind=on install

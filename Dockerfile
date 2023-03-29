@@ -60,8 +60,8 @@ ADD install_devtoolset11.sh /script/
 RUN /script/install_devtoolset11.sh
 SHELL [ "scl", "enable", "devtoolset-11" ]
 
-ADD install_cmake3251.sh /script/
-RUN /script/install_cmake3251.sh
+ADD install_cmake3261.sh /script/
+RUN /script/install_cmake3261.sh
 
 ADD install_libbacktrace.sh /script/
 RUN /script/install_libbacktrace.sh
@@ -73,17 +73,17 @@ ENV Boost_DIR /usr/local/boost_1_81_0
 ADD install_cryptopp870.sh /script/
 RUN /script/install_cryptopp870.sh
 
-ADD install_googletest1121.sh /script/
-RUN /script/install_googletest1121.sh
+ADD install_googletest1130.sh /script/
+RUN /script/install_googletest1130.sh
 
-ADD install_python3110.sh /script/
-RUN /script/install_python3110.sh
+ADD install_python3112.sh /script/
+RUN /script/install_python3112.sh
 
 ADD install_cpptools.sh /script/
 RUN /script/install_cpptools.sh
 
-ADD install_cppcheck29.sh /script/
-RUN /script/install_cppcheck29.sh
+ADD install_cppcheck210.sh /script/
+RUN /script/install_cppcheck210.sh
 
 ADD install_zsh59.sh /script/
 RUN /script/install_zsh59.sh
@@ -91,30 +91,27 @@ RUN /script/install_zsh59.sh
 ADD install_ninja1111.sh /script/
 RUN /script/install_ninja1111.sh
 
-ADD install_ffmpeg512.sh /script/
-RUN /script/install_ffmpeg512.sh
+ADD install_ffmpeg60.sh /script/
+RUN /script/install_ffmpeg60.sh
 
-ADD install_golang1193.sh /script/
-RUN /script/install_golang1193.sh
+ADD install_golang1202.sh /script/
+RUN /script/install_golang1202.sh
 
 # Set environment variables
 ENV HOME /root
 ENV PATH="${PATH}:${HOME}/go/bin:/usr/local/go/bin"
 
-ADD install_libwebp124.sh /script/
-RUN /script/install_libwebp124.sh
+ADD install_libwebp130.sh /script/
+RUN /script/install_libwebp130.sh
 
 ADD install_wrk420.sh /script/
 RUN /script/install_wrk420.sh
 
-ADD install_protobuf2110.sh /script/
-RUN /script/install_protobuf2110.sh
+ADD install_protobuf222.sh /script/
+RUN /script/install_protobuf222.sh
 
 ADD install_webrtc.sh /script/
 RUN /script/install_webrtc.sh
-
-ADD install_gstreamer1203.sh /script/
-RUN /script/install_gstreamer1203.sh
 
 # ctail
 RUN wget -O - https://raw.githubusercontent.com/castisdev/ctail/master/install.sh --no-check-certificate | bash
