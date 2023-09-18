@@ -3,9 +3,9 @@ set -x #echo on
 
 cd ~
 yum install -y zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel libffi-devel; yum clean all -y
-wget -nv https://www.python.org/ftp/python/3.11.2/Python-3.11.2.tar.xz
-tar xf Python-3.11.2.tar.xz
-cd Python-3.11.2
+wget -nv https://www.python.org/ftp/python/3.11.5/Python-3.11.5.tar.xz
+tar xf Python-3.11.5.tar.xz
+cd Python-3.11.5
 export CFLAGS=$(pkg-config --cflags openssl11)
 export LDFLAGS=$(pkg-config --libs openssl11)
 ./configure --prefix=/usr/local
