@@ -66,9 +66,9 @@ RUN /script/install_cmake3283.sh
 ADD install_libbacktrace.sh /script/
 RUN /script/install_libbacktrace.sh
 
-ADD install_boost184.sh /script/
-RUN /script/install_boost184.sh
-ENV Boost_DIR /usr/local/boost_1_84_0
+ADD install_boost183.sh /script/
+RUN /script/install_boost183.sh
+ENV Boost_DIR /usr/local/boost_1_83_0
 
 ADD install_cryptopp890.sh /script/
 RUN /script/install_cryptopp890.sh
@@ -97,8 +97,8 @@ RUN /script/install_openssl3013.sh
 ADD install_ffmpeg611.sh /script/
 RUN /script/install_ffmpeg611.sh
 
-ADD install_golang1220.sh /script/
-RUN /script/install_golang1220.sh
+ADD install_golang1221.sh /script/
+RUN /script/install_golang1221.sh
 
 # Set environment variables
 ENV HOME /root
