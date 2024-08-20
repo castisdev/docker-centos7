@@ -3,9 +3,9 @@ set -x #echo on
 yum -y install perl-IPC-Cmd; yum -y clean all
 
 cd ~
-wget -nv --no-check-certificate https://github.com/openssl/openssl/archive/refs/tags/openssl-3.0.13.tar.gz
-tar xf openssl-3.0.13.tar.gz
-cd openssl-openssl-3.0.13
+wget -nv --no-check-certificate https://github.com/openssl/openssl/archive/refs/tags/openssl-3.0.14.tar.gz
+tar xf openssl-3.0.14.tar.gz
+cd openssl-openssl-3.0.14
 ./config --prefix=/usr/local/openssl --openssldir=/usr/local/openssl shared
 make -j$(nproc); make install
 cd ~

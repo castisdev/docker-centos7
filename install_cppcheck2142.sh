@@ -2,9 +2,9 @@
 set -x #echo on
 cd ~
 yum -y install bzip2; yum -y clean all
-wget -nv --no-check-certificate --content-disposition https://github.com/danmar/cppcheck/archive/2.13.0.tar.gz
-tar xf cppcheck-2.13.0.tar.gz
-cd cppcheck-2.13.0
+wget -nv --no-check-certificate --content-disposition https://github.com/danmar/cppcheck/archive/2.14.2.tar.gz
+tar xf cppcheck-2.14.2.tar.gz
+cd cppcheck-2.14.2
 mkdir build;cd build;cmake ..;make install -j$(nproc)
 cd ~
 rm -rf cppcheck*

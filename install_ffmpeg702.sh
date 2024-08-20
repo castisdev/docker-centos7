@@ -48,9 +48,9 @@ cd ~
 rm -rf x265-3.4*
 
 cd ~
-wget -nv --no-check-certificate https://ffmpeg.org/releases/ffmpeg-6.1.1.tar.bz2
-tar xf ffmpeg-6.1.1.tar.bz2
-cd ffmpeg-6.1.1
+wget -nv --no-check-certificate https://ffmpeg.org/releases/ffmpeg-7.0.2.tar.bz2
+tar xf ffmpeg-7.0.2.tar.bz2
+cd ffmpeg-7.0.2
 
 PKG_CONFIG_PATH="/usr/local/openssl/lib64/pkgconfig:/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH" ./configure --enable-gpl --enable-version3 --enable-shared --enable-libxml2 --enable-openssl --enable-libopenh264 --enable-libopus --enable-libx264 --enable-libx265 --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libharfbuzz
 make install -j$(nproc)
@@ -62,5 +62,5 @@ make install -j$(nproc)
 ldconfig
 
 cd ~
-rm -rf ffmpeg-6.1.1*
+rm -rf ffmpeg-7.0.2*
 ccache -C

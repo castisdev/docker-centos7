@@ -6,6 +6,10 @@ LABEL org.opencontainers.image.source https://github.com/castisdev/docker-centos
 # set timezone
 RUN ln -snf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
 
+RUN sed -i s/mirror.centos.org/vault.centos.org/g /etc/yum.repos.d/*.repo
+RUN sed -i s/^#.*baseurl=http/baseurl=http/g /etc/yum.repos.d/*.repo
+RUN sed -i s/^mirrorlist=http/#mirrorlist=http/g /etc/yum.repos.d/*.repo
+
 # Install EPEL repo
 RUN yum install -y epel-release; yum -y clean all
 
@@ -60,58 +64,58 @@ ADD install_devtoolset11.sh /script/
 RUN /script/install_devtoolset11.sh
 SHELL [ "scl", "enable", "devtoolset-11" ]
 
-ADD install_cmake3283.sh /script/
-RUN /script/install_cmake3283.sh
+ADD install_cmake3302.sh /script/
+RUN /script/install_cmake3302.sh
 
 ADD install_libbacktrace.sh /script/
 RUN /script/install_libbacktrace.sh
 
-ADD install_boost183.sh /script/
-RUN /script/install_boost183.sh
-ENV Boost_DIR /usr/local/boost_1_83_0
+ADD install_boost186.sh /script/
+RUN /script/install_boost186.sh
+ENV Boost_DIR /usr/local/boost_1_86_0
 
 ADD install_cryptopp890.sh /script/
 RUN /script/install_cryptopp890.sh
 
-ADD install_googletest1140.sh /script/
-RUN /script/install_googletest1140.sh
+ADD install_googletest1152.sh /script/
+RUN /script/install_googletest1152.sh
 
-ADD install_python3122.sh /script/
-RUN /script/install_python3122.sh
+ADD install_python3125.sh /script/
+RUN /script/install_python3125.sh
 
 ADD install_cpptools.sh /script/
 RUN /script/install_cpptools.sh
 
-ADD install_cppcheck2130.sh /script/
-RUN /script/install_cppcheck2130.sh
+ADD install_cppcheck2142.sh /script/
+RUN /script/install_cppcheck2142.sh
 
 ADD install_zsh59.sh /script/
 RUN /script/install_zsh59.sh
 
-ADD install_ninja1111.sh /script/
-RUN /script/install_ninja1111.sh
+ADD install_ninja1121.sh /script/
+RUN /script/install_ninja1121.sh
 
-ADD install_openssl3013.sh /script/
-RUN /script/install_openssl3013.sh
+ADD install_openssl3014.sh /script/
+RUN /script/install_openssl3014.sh
 
-ADD install_ffmpeg611.sh /script/
-RUN /script/install_ffmpeg611.sh
+ADD install_ffmpeg702.sh /script/
+RUN /script/install_ffmpeg702.sh
 
-ADD install_golang1221.sh /script/
-RUN /script/install_golang1221.sh
+ADD install_golang1230.sh /script/
+RUN /script/install_golang1230.sh
 
 # Set environment variables
 ENV HOME /root
 ENV PATH="${PATH}:${HOME}/go/bin:/usr/local/go/bin"
 
-ADD install_libwebp132.sh /script/
-RUN /script/install_libwebp132.sh
+ADD install_libwebp140.sh /script/
+RUN /script/install_libwebp140.sh
 
 ADD install_wrk420.sh /script/
 RUN /script/install_wrk420.sh
 
-ADD install_protobuf253.sh /script/
-RUN /script/install_protobuf253.sh
+ADD install_protobuf273.sh /script/
+RUN /script/install_protobuf273.sh
 
 # ctail
 RUN wget -O - https://raw.githubusercontent.com/castisdev/ctail/master/install.sh --no-check-certificate | bash
