@@ -2,7 +2,7 @@
 set -x #echo on
 yum -y install bzip2-devel which valgrind-devel; yum -y clean all
 cd ~
-wget -nv --no-check-certificate https://boostorg.jfrog.io/artifactory/main/release/1.85.0/source/boost_1_85_0.tar.gz
+wget -nv --no-check-certificate https://archives.boost.io/release/1.85.0/source/boost_1_85_0.tar.gz
 tar xzf boost_1_85_0.tar.gz
 cd boost_1_85_0
 

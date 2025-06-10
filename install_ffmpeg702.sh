@@ -52,11 +52,11 @@ wget -nv --no-check-certificate https://ffmpeg.org/releases/ffmpeg-7.0.2.tar.bz2
 tar xf ffmpeg-7.0.2.tar.bz2
 cd ffmpeg-7.0.2
 
-PKG_CONFIG_PATH="/usr/local/openssl/lib64/pkgconfig:/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH" ./configure --enable-gpl --enable-version3 --enable-shared --enable-libxml2 --enable-openssl --enable-libopenh264 --enable-libopus --enable-libx264 --enable-libx265 --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libharfbuzz
+PKG_CONFIG_PATH="/usr/local/lib64/pkgconfig:/usr/local/openssl/lib64/pkgconfig:/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH" ./configure --enable-gpl --enable-version3 --enable-shared --enable-libxml2 --enable-openssl --enable-libopenh264 --enable-libopus --enable-libx264 --enable-libx265 --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-libsrt
 make install -j$(nproc)
 echo "/usr/local/lib" >> /etc/ld.so.conf.d/ffmpeg.conf
 
-PKG_CONFIG_PATH="/usr/local/openssl/lib64/pkgconfig:/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH" ./configure --prefix=/usr/local/lib/ffmpeg_lgpl --enable-shared --enable-libxml2 --enable-openssl --enable-libopenh264 --enable-libopus --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libharfbuzz
+PKG_CONFIG_PATH="/usr/local/lib64/pkgconfig:/usr/local/openssl/lib64/pkgconfig:/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH" ./configure --prefix=/usr/local/lib/ffmpeg_lgpl --enable-shared --enable-libxml2 --enable-openssl --enable-libopenh264 --enable-libopus --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-libsrt
 make install -j$(nproc)
 
 ldconfig
