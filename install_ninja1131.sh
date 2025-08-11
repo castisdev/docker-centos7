@@ -8,11 +8,10 @@ mkdir .build && cd .build && cmake .. && cmake --build . -j$(nproc) --target ins
 cd ~
 rm -rf re2c-3.1*
 
-wget -nv https://github.com/ninja-build/ninja/archive/refs/tags/v1.12.1.tar.gz --no-check-certificate --content-disposition
-tar xvf ninja-1.12.1.tar.gz
-cd ninja-1.12.1
+wget -nv https://github.com/ninja-build/ninja/archive/refs/tags/v1.13.1.tar.gz --no-check-certificate --content-disposition
+tar xvf ninja-1.13.1.tar.gz
+cd ninja-1.13.1
 ./configure.py --bootstrap
 install ninja /usr/local/bin
 cd ~
 rm -rf ninja-*
-ccache -C

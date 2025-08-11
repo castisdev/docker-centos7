@@ -7,4 +7,3 @@ cd googletest-1.15.2/
 mkdir build;cd build;cmake ..;make install -j$(nproc)
 cd ~
 rm -rf googletest-1.15.2.tar.gz googletest*
-ccache -C

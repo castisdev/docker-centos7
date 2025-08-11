@@ -10,4 +10,3 @@ make install -j$(nproc)
 ldconfig
 cd ~
 rm -rf libwebp-*
-ccache -C

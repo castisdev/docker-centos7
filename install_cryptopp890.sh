@@ -10,4 +10,3 @@ make static -j$(nproc)
 make install -j$(nproc)
 cd ~
 rm -rf cryptopp*
-ccache -C
