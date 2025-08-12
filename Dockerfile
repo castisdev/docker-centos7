@@ -71,9 +71,9 @@ RUN /script/install_cmake3318.sh
 ADD install_libbacktrace.sh /script/
 RUN /script/install_libbacktrace.sh
 
-ADD install_boost188.sh /script/
-RUN /script/install_boost188.sh
-ENV Boost_DIR /usr/local/boost_1_88_0
+ADD install_boost187.sh /script/
+RUN /script/install_boost187.sh
+ENV Boost_DIR /usr/local/boost_1_87_0
 
 ADD install_cryptopp890.sh /script/
 RUN /script/install_cryptopp890.sh
