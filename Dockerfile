@@ -65,15 +65,15 @@ RUN /script/install_devtoolset11.sh
 SHELL [ "scl", "enable", "devtoolset-11" ]
 ENV BUILD_TOOLSET_ENABLE=/opt/rh/devtoolset-11/enable
 
-ADD install_cmake3318.sh /script/
-RUN /script/install_cmake3318.sh
+ADD install_cmake33110.sh /script/
+RUN /script/install_cmake33110.sh
 
 ADD install_libbacktrace.sh /script/
 RUN /script/install_libbacktrace.sh
 
-ADD install_boost187.sh /script/
-RUN /script/install_boost187.sh
-ENV Boost_DIR /usr/local/boost_1_87_0
+ADD install_boost190.sh /script/
+RUN /script/install_boost190.sh
+ENV Boost_DIR /usr/local/boost_1_90_0
 
 ADD install_cryptopp890.sh /script/
 RUN /script/install_cryptopp890.sh
@@ -87,14 +87,14 @@ RUN /script/install_python3125.sh
 ADD install_cpptools.sh /script/
 RUN /script/install_cpptools.sh
 
-ADD install_cppcheck2180.sh /script/
-RUN /script/install_cppcheck2180.sh
+ADD install_cppcheck2190.sh /script/
+RUN /script/install_cppcheck2190.sh
 
 ADD install_zsh59.sh /script/
 RUN /script/install_zsh59.sh
 
-ADD install_ninja1131.sh /script/
-RUN /script/install_ninja1131.sh
+ADD install_ninja1132.sh /script/
+RUN /script/install_ninja1132.sh
 
 ADD install_openssl3017.sh /script/
 RUN /script/install_openssl3017.sh
@@ -102,18 +102,18 @@ RUN /script/install_openssl3017.sh
 ADD install_srt154.sh /script/
 RUN /script/install_srt154.sh
 
-ADD install_ffmpeg703.sh /script/
-RUN /script/install_ffmpeg703.sh
+ADD install_ffmpeg801.sh /script/
+RUN /script/install_ffmpeg801.sh
 
-ADD install_golang1246.sh /script/
-RUN /script/install_golang1246.sh
+ADD install_golang1255.sh /script/
+RUN /script/install_golang1255.sh
 
 # Set environment variables
 ENV HOME /root
 ENV PATH="${PATH}:${HOME}/go/bin:/usr/local/go/bin"
 
-ADD install_libwebp140.sh /script/
-RUN /script/install_libwebp140.sh
+ADD install_libwebp160.sh /script/
+RUN /script/install_libwebp160.sh
 
 ADD install_wrk420.sh /script/
 RUN /script/install_wrk420.sh
