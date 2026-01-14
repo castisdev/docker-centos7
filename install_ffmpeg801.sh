@@ -56,9 +56,9 @@ cd ~
 rm -rf nv-codec-headers*
 
 cd ~
-wget -nv --no-check-certificate https://ffmpeg.org/releases/ffmpeg-7.1.3.tar.bz2
-tar xf ffmpeg-7.1.3.tar.bz2
-cd ffmpeg-7.1.3
+wget -nv --no-check-certificate https://ffmpeg.org/releases/ffmpeg-8.0.1.tar.bz2
+tar xf ffmpeg-8.0.1.tar.bz2
+cd ffmpeg-8.0.1
 
 PKG_CONFIG_PATH="/usr/local/lib64/pkgconfig:/usr/local/openssl/lib64/pkgconfig:/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH" ./configure --enable-gpl --enable-version3 --enable-shared --enable-libxml2 --enable-openssl --enable-libopenh264 --enable-libopus --enable-libx264 --enable-libx265 --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-libsrt
 make install -j$(nproc)
@@ -73,4 +73,4 @@ make install -j$(nproc)
 ldconfig
 
 cd ~
-rm -rf ffmpeg-7.1.3*
+rm -rf ffmpeg-8.0.1*
