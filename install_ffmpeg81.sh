@@ -4,6 +4,16 @@ yum -y install libxml2-devel SDL2-devel alsa-lib-devel libXv-devel libX11-devel 
 yum -y clean all
 
 cd ~
+wget -nv --no-check-certificate --content-disposition https://github.com/zeromq/libzmq/archive/refs/tags/v4.3.5.tar.gz
+tar xf libzmq-4.3.5.tar.gz
+cd libzmq-4.3.5
+./autogen.sh
+./configure
+make install -j$(nproc)
+cd ~
+rm -rf libzmq-4.3.5*
+
+cd ~
 wget -nv --no-check-certificate https://www.nasm.us/pub/nasm/releasebuilds/2.16.01/nasm-2.16.01.tar.bz2
 tar xf nasm-2.16.01.tar.bz2
 cd nasm-2.16.01
@@ -60,17 +70,20 @@ wget -nv --no-check-certificate https://ffmpeg.org/releases/ffmpeg-8.1.tar.bz2
 tar xf ffmpeg-8.1.tar.bz2
 cd ffmpeg-8.1
 
-PKG_CONFIG_PATH="/usr/local/lib64/pkgconfig:/usr/local/openssl/lib64/pkgconfig:/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH" ./configure --enable-gpl --enable-version3 --enable-shared --enable-libxml2 --enable-openssl --enable-libopenh264 --enable-libopus --enable-libx264 --enable-libx265 --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-libsrt
+PKG_CONFIG_PATH="/usr/local/lib64/pkgconfig:/usr/local/openssl/lib64/pkgconfig:/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH" ./configure --enable-gpl --enable-version3 --enable-shared --enable-libxml2 --enable-openssl --enable-libopenh264 --enable-libopus --enable-libx264 --enable-libx265 --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-libsrt --enable-libzmq
 make install -j$(nproc)
 echo "/usr/local/lib" >> /etc/ld.so.conf.d/ffmpeg.conf
 
-PKG_CONFIG_PATH="/usr/local/lib64/pkgconfig:/usr/local/openssl/lib64/pkgconfig:/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH" ./configure --prefix=/usr/local/lib/ffmpeg_lgpl --enable-shared --enable-libxml2 --enable-openssl --enable-libopenh264 --enable-libopus --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-libsrt
+PKG_CONFIG_PATH="/usr/local/lib64/pkgconfig:/usr/local/openssl/lib64/pkgconfig:/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH" ./configure --prefix=/usr/local/lib/ffmpeg_lgpl --enable-shared --enable-libxml2 --enable-openssl --enable-libopenh264 --enable-libopus --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-libsrt --enable-libzmq
 make install -j$(nproc)
 
-PKG_CONFIG_PATH="/usr/local/lib64/pkgconfig:/usr/local/openssl/lib64/pkgconfig:/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH" ./configure --prefix=/usr/local/lib/ffmpeg_nv --enable-gpl --enable-version3 --enable-shared --enable-libxml2 --enable-openssl --enable-libopenh264 --enable-libopus --enable-libx264 --enable-libx265 --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-libsrt --enable-nonfree --enable-cuda-nvcc --extra-cflags=-I/usr/local/cuda/include --extra-ldflags=-L/usr/local/cuda/lib64
+PKG_CONFIG_PATH="/usr/local/lib64/pkgconfig:/usr/local/openssl/lib64/pkgconfig:/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH" ./configure --prefix=/usr/local/lib/ffmpeg_nv --enable-gpl --enable-version3 --enable-shared --enable-libxml2 --enable-openssl --enable-libopenh264 --enable-libopus --enable-libx264 --enable-libx265 --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-libsrt --enable-libzmq --enable-nonfree --enable-cuda-nvcc --extra-cflags=-I/usr/local/cuda/include --extra-ldflags=-L/usr/local/cuda/lib64
 make install -j$(nproc)
 
 ldconfig
+
+gcc -I. tools/zmqsend.c -o zmqsend -L./libavutil -lavutil -lzmq
+cp zmqsend /usr/local/bin
 
 cd ~
 rm -rf ffmpeg-8.1*
